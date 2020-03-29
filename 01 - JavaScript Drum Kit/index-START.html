@@ -60,13 +60,13 @@
 <script>
   const keys = document.querySelectorAll('.key');
   keys.forEach((k) => {
-    k.addEventListener('click', (e) => {
-      if (k.getAttribute('class') === 'key') {
+    k.addEventListener('mousedown', (e) => {
         k.setAttribute('class', 'key playing');
-      }
-      else {
+        const dataKey = k.getAttribute('data-key');
+        document.querySelector("audio[data-key='" + dataKey + "']").play();
+    });
+    k.addEventListener('mouseup', (e) => {
         k.setAttribute('class', 'key');
-      }
     });
   });
 </script>
