@@ -68,6 +68,14 @@
     k.addEventListener('mouseup', (e) => {
         k.setAttribute('class', 'key');
     });
+    document.addEventListener('keydown', (e) => {
+      const literalKey = k.firstChild.nextSibling.textContent;
+      if (e.key == literalKey.toLowerCase()) {
+        k.setAttribute('class', 'key playing');
+        const dataKey = k.getAttribute('data-key');
+        document.querySelector("audio[data-key='" + dataKey + "']").play();
+      }
+    });
   });
 </script>
 
