@@ -76,6 +76,12 @@
         document.querySelector("audio[data-key='" + dataKey + "']").play();
       }
     });
+    document.addEventListener('keyup', (e) => {
+      const literalKey = k.firstChild.nextSibling.textContent;
+      if (e.key == literalKey.toLowerCase()) {
+        k.setAttribute('class', 'key');
+      }
+    });
   });
 </script>
 
